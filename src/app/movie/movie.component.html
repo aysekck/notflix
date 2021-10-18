@@ -1,14 +1,27 @@
-<p>Notflix is  Great</p>
+<p>Notflix is Great</p>
 
-<ul>
-    
-    <li class="grid-container" *ngFor="let movieItem of objectMovies">
-           Id {{movieItem.id}}
-           Name {{movieItem.name}}
-           Genre {{movieItem.genre}}
-           <div>
-            <iframe width="200" height="200" src="https://www.youtube.com/embed/XmtXC_n6X6Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-           </div>
-           
-    </li>
-</ul>
+<div class="container">
+  <button class="btn-primary" onclick="saveMovie(movie)">Add new movie</button>
+
+  <div class="row">
+    <div class="col-md-12">
+      <ul>
+        <li
+          class="grid-container col-md-4"
+          *ngFor="let movieItem of objectMovies"
+        >
+          <iframe
+            width="200"
+            height="180"
+            [src]="movieItem.link | safe"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <p>{{ movieItem.name }} (rate: {{ movieItem.rate }})</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
