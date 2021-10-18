@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../movieOwner';
+import { OwnerService } from '../owner.service';
 
 @Component({
   selector: 'app-movie',
@@ -56,8 +58,13 @@ export class MovieComponent implements OnInit {
       rate: 5.0,
     },
   ];
+  mock: any;
 
-  constructor() {}
+  addMovieToList(movie: Movie): void {
+    this.mock = this.stuff.saveMovie(movie);
+  }
+
+  constructor(private stuff: OwnerService) {}
 
   ngOnInit(): void {}
 }
